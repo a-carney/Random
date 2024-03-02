@@ -12,8 +12,7 @@ struct LinkedList {
 };
 
 #define MAX 10
-#define LinkedList ((struct LinkedList *)malloc(sizeof(struct LinkedList)))
-
+#define NEW_LINKED_LIST() (struct LinkedList *)malloc(sizeof(struct LinkedList))
 
 int getRandomInt(int min, int max) {
     return (rand() % (max - min + 1)) + min;

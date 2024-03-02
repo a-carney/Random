@@ -1,0 +1,13 @@
+{
+  "configurations": {
+    "Python: Launch File": {
+      "adapter": "debugpy",
+      "configuration": {
+        "request": "launch",
+        "program": "${file}",
+        "pythonPath": "python3"
+      }
+    }
+  }
+}
+

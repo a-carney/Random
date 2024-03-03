@@ -1,0 +1,41 @@
+Part I: (The week before Spring break)
+In Part I, students will only explore existing approaches for the task they are tackling. The
+requirement is for students to read a minimum of 8 papers and have a full understanding of the
+task and existing models to solve the problem. It is recommended that students include 1–2
+papers that provide an overview/survey on the problem to first fully understand the problem.
+Also, at least four papers should be published in the past two years.
+This phase is very important for the project as it gives the students an idea about what the
+problem is, and also provides insight into the current existing approaches to tackle the problem.
+Upon completing this part of the project, students will have a better understanding of the next
+steps. For deliverables, students will write a minimum of three pages of their understanding of
+the paper and the approaches. In this document, they should discuss the strengths and
+weaknesses of each approach they read, providing a table. In addition to the report, students
+will have class presentations to introduce approaches to their classmates.
+It is essential to choose the right papers for this phase; Papers that are peer-reviewed, have
+publicly available code (their results are reproducible), and have the right experimental settings.
+During the course, students will learn how to find papers
+
+
+
+As described in the course project description, in this phase, students will read the related
+papers to their tasks. The requirements for the papers were a minimum of 8 papers, with 4 of
+them being recent papers. The project has two deliverables, an in-class presentation and a
+report.
+For the presentation, each student will have 5 minutes to present their task and papers. The
+presentation should have one slide with an example, explaining the task. The second slide
+shows categorized related work based on what approaches were taken before. The third slide
+should explain which approach is chosen by the student to run as the baseline model, and it
+should be justified. Presentations for each student are limited to only 4 slides (one additional
+slide if needed, otherwise just the 3 requested slides), and you should use space wisely. No
+presentation should go over 5 minutes, and failure to do so will result in a penalty and your talk
+will be stopped.
+For the report, each student should have a minimum of three pages, reflecting their
+understanding of existing work. You will provide a table, discussing the strengths and
+weaknesses of each approach. In your report, you will refer to this table and explain each
+approach. All the papers should be appropriately cited; if you are not familiar with Overleaf,
+spend some time and learn how to correctly cite papers (this link might help).
+For submission, all the slides for individual students should be put together and submitted as
+one PDF file. You will present your talk from the submitted file. For the report, you should find
+an appropriate follow, combine all the reports, and submit both .zip (source) and .pdf files from
+Overleaf. The report should be in the Springer template shared before (Springer’s LNCS
+template).

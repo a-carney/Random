@@ -1,0 +1,498 @@
+List of Papers:
+1.) Social Media Hate Speech Detection Using Explainable Artificial Intelligence (XAI)
+2.) Design Principles for User Interfaces in AI-Based Decision Support Systems: The Case of Explainable Hate Speech Detection
+3.) A systematic review of hate speech automatic detection using natural language processing
+4.) EnsMulHateCyb: Multilingual hate speech and cyberbully detection in online social media
+5.) Title: An Ensemble-Based Multi-Classification Machine Learning Classifiers Approach to Detect Multiple Classes of Cyberbullying
+
+===========================================================================================================
+===========================================================================================================
+					LIST OF ACADEMIC PAPERS AND THEIR SUMMARY
+===========================================================================================================
+===========================================================================================================
+
+
+1.)
+===========================================================================================================
+Title: Social Media Hate Speech Detection Using Explainable Artificial Intelligence (XAI)
+Authors: Harshkumar Mehta and Kalpdrum Passi
+Published: August 17, 2022
+link: https://www.mdpi.com/1999-4893/15/8/291
+MLA:
+		Mehta, Harshkumar, and Kalpdrum Passi. "Social Media Hate Speech Detection Using Explainable 
+		Artificial Intelligence (XAI)." Algorithms, vol. 15, no. 8, 2022, art. 291, https://doi.org/10.3390/a15080291.	
+===========================================================================================================
+Aim: To understand and explain decisions made by AI models in detecting hate speech
+Importance: Ehances readability and interpretability of AI models
+
+Datsets Used:--------------------------------------------------------------------------------------------
+
+Google Jigsaw Dataset -> Models: Decision Trees, k-Nearest Neighbors, Multinomial Naive Bayes, 
+								Random Forest, Logistic Regression, LSTM (Long Short-Term Memory)
+  						Result: LSTM outperformed all other models with accuracy of 97.6%
+HateXplain Dataset -> Models: 2 variations of BERT (Bidirectional Encoder Representations from Transformers)
+  						      =>  BERT + ANN (Artificial Neural Network) : 93.55% accuracy
+							  =>  BERT + MLP (Multilayer Perceptron) : 93.67% accuracy
+
+Summary:
+	This article starts off with the explanation of the importance of explainable (XAI) AI models, especially in fields like healthcare and defense. It is shown that XAI can help with the interpretability of AI models, which is crucial for the acceptance of AI in society. The authors then move on to the explanation of the datasets used in the study. The Google Jigsaw dataset is used to train and test 5 different models, and the LSTM model outperforms all other models with an accuracy of 97.6%. The HateXplain dataset is used to train and test 2 variations of BERT, and both models achieve an accuracy of over 93%. The authors conclude that the LSTM model is the best model for detecting hate speech, and that XAI can help with the interpretability of AI models.
+
+Key Terms:
+	XAI, Google Jigsaw, HateXplain, BERT, LSTM, ANN, MLP, ERASER, LIME
+
+Data Processing:------------------------------------------------------------------------------------------
+
+	Process for Non-BERT Models:
+		1.) Row filtering
+		2.) Tokenization 
+		3.) Removing stop words
+		4.) Regex (i.e. removing URLs, whitespace, non-alphanumeric characters)
+	
+	Process for BERT Models:
+		Since BERT is a pre-trained mode that can understand elements of natural lanaguage including 
+		punctuation and stop words
+
+
+	After initial data processing both models:
+		1.) Toknization : NLTK -> TensorFlow == int[]
+		2.) Sentence Padding : each sentence is padded to 200 chars
+		3.) Lemetization : reduce words to their base form
+		4.) Simplify Categories : ["text", "category", "label"]
+		5.) Create int mappings: {"hate_speech": 0, "offensive_language": 1, "neither": 2}
+		6.) Exploratory Data Analysis (EDA) : no specific details given
+
+Feature Extraction and Classification:---------------------------------------------------------------------
+
+		Feature Extraction 	=>  Uses Count TF-IDF to convert text into numerical vectors
+		
+		Classification Techniques and Explainability:
+				-> Google Jigsaw {AAN, MLP, decision trees, KNN, random forest, multinomial naïve Bayes, logistic regression, LSTM} (hate speech detection)
+				-> HateXplain {BERT + LIME}
+
+Deep Learning Models:---------------------------------------------------------------------------------------
+		
+		1.) Long Short-Term Memory (LSTM)
+			accuracy: 			97.6%
+			input layer:		30,000 x 128 (reduces number of entities)
+
+		2.) BERT (accuracy: 93.67%) 
+			-> bidrectional design (can understand context)
+			-> Uses two models for pretraining:
+			   -Masked Language Model (MLM) : featured representation of words considering both left and right context
+			   -Next sentence prediction (NSP) : relationship between sentences to predict next sentence
+				
+				(note: there is a specific flavor of BERT called AngryBERT that is for detecting hate speech, 
+				but the authors of this paper decided to use the standard BERT model for the integrity of the study)
+
+		3.) LIME (Local Interpretable Model-agnostic Explanations)
+			-> offers intepretable explanations for any supervised model prediciton
+			-> goal is to simplify AI decisions for easier understanding
+			-> "model agnostic" : generates explanations without knowing the model's internal structure
+
+Results:---------------------------------------------------------------------------------------------------
+
+		-> LSTM outperformed all other models with an accuracy of 97.6%
+		-> BERT + MLP achieved an accuracy of 93.55%
+		-> BERT + ANN achieved an accuracy of 93.67%
+
+
+Conclusion:------------------------------------------------------------------------------------------------
+
+The study underscores the effectiveness of LSTM and BERT variants in hate speech detection, with a particular focus on the enhancement of model interpretability through XAI, fostering greater trust and understanding in AI applications.
+
+
+===========================================================================================================
+===========================================================================================================
+
+
+2.)
+===========================================================================================================
+Title: Design Principles for User Interfaces in AI-Based Decision Support Systems: The Case of Explainable Hate Speech Detection
+Authors: Christian Meske and Enrico Bunde
+Published: March 02, 2022
+URL: https://link.springer.com/article/10.1007/s10796-021-10234-5
+Cite: Meske, C., Bunde, E. Design Principles for User Interfaces in AI-Based Decision Support Systems: The Case of Explainable Hate Speech Detection. Inf Syst Front 25, 743–773 (2023). https://doi.org/10.1007/s10796-021-10234-5	
+===========================================================================================================
+
+Aim:
+- Develop a framework for UIs in AI-based decision support systems for combating online hate speech.
+===========================================================================================================
+
+Problem Identification and Motivation:--------------------------------------------------------------------
+
+	1. Hate Speech on Social Media:
+		- Growing issue, affecting 37% of Americans age 12-17.
+		- Education and awareness are key solutions.
+	2. Decision Support Systems (DSS) for Hate Speech Detection:
+		- AI alone cannot solve the problem.
+		- Combining AI with human moderators is unexplored.
+	3. Artificial Intelligence for Hate Speech Detection:
+		- Existing applications are black boxed.
+	4. Explainable AI (XAI) and Local Explanations for User Interfaces:
+		- XAI provides solutions to the black box problem.
+		- XAI model responses can be parsed to UI responses.
+
+Design Science Research Project:---------------------------------------------------------------------------
+
+	1. Design Science Research Process:
+		- Objective: Create practical Design Principles (DPs) for UIs in AI-based DSS.
+		- Method: Design Science Research (DSR) process.
+		- Design Cycles: Literature Review, Design and Development, Evaluation.
+	2. Hate Speech Detection Using Transfer Learning and Artifact Development:
+		- Transfer Learning: Fine-tuning pre-trained models for specific tasks.
+		- Implementation and UI Development.
+		- Dataset and Evaluation.
+
+Objectives of the Proposed Solution:------------------------------------------------------------------------
+
+	1. Adapt and justify Design Requirements (DRs) for hate speech detection.
+	2. Design Principles (DPs) and Design Features (DFs) meet the identified Design Requirements (DRs).
+	3. Iterative design cycles refine DPs and DFs.
+
+Design and Development:--------------------------------------------------------------------------------
+
+	1. Design Principles (DPs) for UIs in AI-Based DSS:
+		- Transfer learning for text classification.
+		- XAI-based system outputs justification.
+		- Case-based contextual information.
+	2. Design Features (DFs) for UIs in AI-Based DSS:
+		- Generate understandable explanations.
+		- Aid decision-making.
+	3. Iterative Design Cycles:
+		- Three design cycles refine and validate DPs and DFs.
+		- Positive user perception and utility in enhancing decision-making.
+		- Local explanations impact user trust and understanding.
+		- Practitioners validate the practical applicability of DPs.
+
+Limitations and Future Research Opportunities:-------------------------------------------------------------
+
+	1. Limitations:
+		- Focus on UIs without considering the backend perspective.
+		- Lack of real-world case study.
+	2. Future Research:
+		- Explore backend perspective.
+		- Broader range of hate speech concepts.
+		- Diverse application domains.
+
+
+Conclusion:------------------------------------------------------------------------------------------------
+
+	- Developed and evaluated DPs for UIs in AI-based DSS for explainable hate speech detection.
+	- Emphasize user and practitioner perspectives in the design process.
+	- Contribute valuable prescriptive knowledge.
+	- Highlight the need for continued efforts in combating online hate speech.
+
+===========================================================================================================
+===========================================================================================================
+
+3.)
+===========================================================================================================
+Title: A systematic review of hate speech automatic detection using natural
+language processing
+Authors: Md Saroar Jahan, Mourad Oussalah
+Published: May 14, 2021 (revised: December 20, 2022
+URL: https://www.sciencedirect.com/science/article/pii/S0925231223003557
+
+Introduction:------------------------------------------------------------------------------------------------
+
+	-Social media, specifically microblogging platforms, have become a breeding ground for hate speech.
+	-Hate speech legislation varies internationally, which complciates online regulation
+	-Identifies 3 causes:
+			1.) Anonymity		2.) Desire to Dominate Debate	3.) Slow moderation by human operators
+
+Background:--------------------------------------------------------------------------------------------------
+
+
+	1. What is Hate Speech?
+		- Not a universally defined term 
+			In Academia: "an act that attacks or demeans a group/individual based on race, ethnic origin, religion, disability, gender, age, disability, or sexual orientation/gender identity"
+			In Enterpise: "We define hate speech as a direct attack against people on the basis of what we call protected characteristics: race, ethnicity, national origin, disability, religious affiliation, caste, sexual orientation, sex, gender identity, and serious disease."
+
+		- Paper Breaks up into categories { General HS, Cyberbullying, Abbusive/Offensive,
+											Sexism/Gender Discrimination, Racism, Radicalization }
+
+	2. Generic Pipeline of Automatic HS Detection:
+			a. Data Collection (tokenization, stopword removal, lemmatization)
+			b. Feature Extraction (TF-IDF, Word Embeddings)
+			c. Model Training (some deep learning model similar to BERT)
+			d. Evaluation (accuracy, F1 score, precision, and other metrics)
+
+Common Acronyms:-------------------------------------------------------------------------------------------
+
+	- HS		: Hate Speech
+	- HT 		: Hate Text
+	- CNN 		: Convolutional Neural Network
+	- LSTM 		: Long Short-Term Memory
+	- BiLSTM	: Bidirectional LSTM
+	- GRU 		: Gated Recurrent Unit (Its a gating mechanism in RNN)
+	- BGRU 		: Bidirectional GRU	
+	- RNN 		: Recurrent Neural Network
+ 	- BERT 		: Bidirectional Encoder Representations from Transformers
+	-RoBERTa
+
+THIS PAPER WILL BE GOOD FOR DATA, ACCEPTED ABBREVATION/TERMINOLOGY, AND GRAPHS
+
+===========================================================================================================
+===========================================================================================================
+
+
+4.)
+===========================================================================================================
+Title: EnsMulHateCyb: Multilingual hate speech and cyberbully detection in online social media
+Authors: Esshaan Mahajan, Hemaank Mahajan, Sanjay Kumar
+Published: August 30 2023
+URL: https://www.sciencedirect.com/science/article/abs/pii/S095741742301730X
+
+Introduction:------------------------------------------------------------------------------------------------
+	
+	- Social is a necessary part of every communcation, but has serious issues with hate speech and cyberbullying
+	- Youth are particularly vulnerable to these issues
+	- Hate speech can incite violence, create social discomfort, and foster stereotypes/discrimination
+	- Governments are tryying to solve this (i.e. European Union Code of Conduct)
+	- This paper proposes an ensemble deep learning-based multilingual model utlizing GloVe embeddings, BiLSTM, BiGRU, CNN-LSTM, and a hybrid bagging-stacking approach for improve hate speech and cyberbullying detection
+	- The goal is to create an efficient robust model that can be used diverse datasets and languages
+
+
+Datasets:-----------------------------------------------------------------------------------------------------
+
+		HateCheck English DS 	: https://github.com/paul-rottger/hatecheck-data
+			-> 7 protected groups black people, Muslims, immigrants, women, trans people, gay people, and disabled people.
+			-> does not contain real hate speech messages but rather synthetic texts based on a set of functionalities
+		
+		Ethos English Ds 		: https://github.com/intelligence-csd-auth-gr/Ethos-Hate-Speech-Dataset
+			-> 998 comments with values from 0 (no HS) to 1 (HS)
+			-> 565 do not contain HS, and 433 contain HS
+		
+		HateXplain Enligsh DS	: https://github.com/hate-alert/HateXplain/tree/master/Data
+			-> 20,148 entries with 3 labels: (normal, offensive, and hate speech)
+
+		Vico English Ds			: https://github.com/Vicomtech/hate-speech-dataset
+			-> generatead from a white supremacy forum
+			-> categories: hate or nohate
+
+		Bengali DS				: https://www.kaggle.com/datasets/naurosromim/bengali-hate-speech-dataset
+			-> 30k Bengali comments: 10k HS, 20k non-HS
+
+		MultiLingual DS			: https://github.com/vidhur2k/Multilngual-Hate-Speech
+			->  languages : Arabic, Danish, French, German, Indonesian, Italian, Portuguese, Spanish
+
+Evaluation Metrics:-------------------------------------------------------------------------------------------
+
+	Precision = TP / (TP + FP)
+	Recall = TP / (TP + FN)
+	F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
+
+	where, 
+		TP = message/comment correctly flagged for HS
+		FP = message/comment incorrectly flagged for HS
+		TN = message/comment correctly flagged as non-HS
+		FN = message/comment incorrectly flagged as non-HS
+
+Proposed Work:------------------------------------------------------------------------------------------------
+		
+		Creation of own model called EnsMulHateCyb (composed of base learners such as BiLSTM, BiGRU, CNNN, and stacked LSTM
+
+		Use of bagging and stacking methods to improve the performance of the base learners
+
+
+===========================================================================================================
+===========================================================================================================
+
+
+5.)
+===========================================================================================================
+Title: Automated Text Annotation Using a Semi-Supervised Approach with Meta Vectorizer and Machine Learning Algorithms for Hate Speech Detection
+Authors: Shoffan Saifullah,Rafał Dreżewski, Felix Andika Dwiyanto,Agus Sasmito Aribowo, Yuli Fauziah,  and Nur Heri Cahyana 
+Published: January 26, 2024
+URL: https://www.mdpi.com/2076-3417/14/3/1078
+Cite:
+	Saifullah, S.; Dreżewski, R.; Dwiyanto, F.A.; Aribowo, A.S.; Fauziah, Y.; Cahyana, N.H. Automated Text Annotation Using a Semi-Supervised Approach with Meta Vectorizer and Machine Learning Algorithms for Hate Speech Detection. Appl. Sci. 2024, 14(3), 1078; https://doi.org/10.3390/app14031078
+
+Introduction:------------------------------------------------------------------------------------------------
+
+	-Hate speech detection uses NLP and sentiment analysis, requiring labeled data for training.
+	-Manual text annotation has drawbacks like expense, errors, inconsistency, and subjectivity.
+	-Automatic text annotation with machine learning (SVM, DT, KNN, NB) addresses these issues, using semi-supervised learning for minimal labeled data.
+	-The study develops automated annotations for hate speech detection on social media, utilizing a meta-vectorizer and meta-classifier approach for model selection.-
+	-Experiments with self-learning thresholds and varying labeled data proportions assess the model's effectiveness.
+	-The research aims to enhance automated text annotation for hate speech, with promising results indicating high accuracy with minimal labeled data.
+
+Material and Methods:-----------------------------------------------------------------------------------------
+
+	- Semi-supervised learning for HS detection
+	- Utilizes SVM, DT, KNN, and NB
+	- Involves text preprocessing and meta-vectorization (TF-IDF, Word2Vec)
+	- Auto-annotation through meta-learning model with 8 combinations of vectorizxation and ML methods
+
+
+
+
+===========================================================================================================
+===========================================================================================================
+
+
+6.) 
+===========================================================================================================
+Title: An Ensemble-Based Multi-Classification Machine Learning Classifiers Approach to Detect Multiple Classes of Cyberbullying
+Authors: Abdulkarim Faraj Alqahtani and Mohammad Ilyas 
+Published: January 12, 2024
+URL: https://www.mdpi.com/2504-4990/6/1/9
+Cite:
+	Alqahtani AF, Ilyas M. An Ensemble-Based Multi-Classification Machine Learning Classifiers Approach to Detect Multiple Classes of Cyberbullying. Machine Learning and Knowledge Extraction. 2024; 6(1):156-170. https://doi.org/10.3390/make6010009
+
+Introduction:- ------------------------------------------------------------------------------------------------
+
+	- Social platgorms are integral for expression and communication
+	- Cyberbullying has risen with increased online platform usage
+	- Challenges in cyberbullying detection include mass ive data volumes an the lack of accurate classification models
+
+Literature Review:-------------------------------------------------------------------------------------------
+
+	- Previous works have developed models for binary and multiclass cyberbullying detection using various ML algorithms and feature-extraction techniques
+	- Ensemble models and feature engineering (i.e. TF-IDF, N-grams) have shown promising results
+	- Real-time detection and effective feature extraction remain significant challenges
+
+Methodology:---------------------------------------------------------------------------------------------------
+	
+	- Focus on detecting multiclass cyberbullying using ensemble models and various feature-extraction methods
+	_ Propses a framework combining DEcision Tree, Random Forest, and XGBoost with TF-IDF and N-gram features for improved detection accuracy
+	- Utlizes hard voting and stacking ensemble techniques for classification
+	- Experiements with a multiclass dataset from Twitter, highglighting the importance of preprocessing and feature extraction for optimal performance
+	- Employed supervised ML classifiers: Decision Tree, Random Forest, XGBoost, with voting and stacking ensemble techniques.
+	- Conducted data preprocessing and feature extraction using TF-IDF and N-grams to prepare data for modeling.
+	- Proposed a framework combining multi-classification models to detect cyberbullying effectively through ensemble techniques.
+	- Demonstrated the effectiveness of ensemble classifiers, particularly stacking over voting, in cyberbullying detection.
+
+Results:-------------------------------------------------------------------------------------------------------
+
+	- Shows effectiveness of ensemble models
+	- Stacking outperforms voting for cyberbullying detection when using a multi-classifcation approach with TF-IDF and N-gram 
+	- Random Forest did the best with Unigrams
+	- Stacking excelled with both unigrams and N-grams
+
+Discussion:----------------------------------------------------------------------------------------------------
+
+	- The study demonstrates the effectiveness of ensemble models for multiclass cyberbullying detection, with stacking outperforming voting.
+	- The results highlight the importance of preprocessing and feature extraction for optimal performance, with Random Forest and XGBoost showing promising results.
+	- The study contributes to the development of effective cyberbullying detection models, with potential applications in social media platforms and online forums.
+
+Conclusion:---------------------------------------------------------------------------------------------------
+
+	- The study ultimate achieved a 90.71% accuracy in multiclass cyberbullying detection using ensemble models, with stacking outperforming voting.
+
+
+===========================================================================================================
+===========================================================================================================
+
+
+7.)
+===========================================================================================================
+Title: Improving Cross-Domain Hate Speech Detection by
+Reducing the False Positive Rate
+Authors: Ilia Markov, Walter Daelemans
+Published: June 6, 2021
+URL: https://aclanthology.org/2021.nlp4if-1.3.pdf
+Cite:
+	Proceedings of the 4th NLP4IF Workshop on NLP for Internet Freedom, pages 17–22
+June 6, 2021. ©2021 Association for Computational Linguistics
+===========================================================================================================
+
+Introduction:------------------------------------------------------------------------------------------------
+
+	- As mentioned in previous papers, hate speech is hard to detect and define
+	- Providing annotators with context, guidelines, or author backgrounds improves quality by reducing FP
+	- Deep learning models can be enhanced with an SVM (Support Vector Machine) approach to reduce FP
+
+Methodology:---------------------------------------------------------------------------------------------------
+
+	- APPROACHES:
+			1. Bag of Words 	2. Convolutional Neural Network (CNN) 	3. Long Short-Term Memory (LSTM)
+
+	- MODELS:
+			1. BERT and RoBERTa			2. Support Vector Machine (SVM)
+
+	- COMBINE:
+			-> to create ensemble method
+
+Experiment and Results:----------------------------------------------------------------------------------------
+
+	- Experimented with 2 English Datasets:
+ 			1. FRENK (Facebook comments) 		2. OLID (Twitter comments)
+	- Cross domain was achieved by training on one dataset and testing on the other
+	- This resulted in a reduction of FP rates across all settiungs particulary when combined with BERT and RoBERTa in an ensemble method
+
+Conclusion:---------------------------------------------------------------------------------------------------
+
+	- Important Equations:
+			FPR (false positive rate) = FP / (FP + TN) 
+			PPV (positive predictive value) =  TP / (TP + FP) 
+	- 78.8% of all false posiitive predictions contained offesnvie words use in non-hateful context
+	- BERT ancd RoBERTa were less likely to classify non-hateful comments as hateful
+	- Therefore, the bigest benefit of an ensemble method is the reduction of FP rates
+
+===========================================================================================================
+===========================================================================================================
+
+
+8.)
+===========================================================================================================
+Title: Demoting Racial Bias in Hate Speech Detection
+Authors: Mengzhou Xia,  Anjalie Field,  Yulia Tsvetkov
+Published: May 25, 2020
+URL: https://arxiv.org/abs/2005.12246
+Cite:
+		arXiv:2005.12246 [cs.CL] 	(or arXiv:2005.12246v1 [cs.CL] for this version)
+		https://doi.org/10.48550/arXiv.2005.12246
+===========================================================================================================
+
+Introduction:------------------------------------------------------------------------------------------------
+
+	- Points out rise in automated detection of hate speech, toxicity, cyberbullying, etc.
+	- Mentions robust hate speech detection systems for law enfrocement, social media, and content moderation
+	- Disucsses challenges in FP -> this is due to nuanced nature of hate speech and potential biases in annotations
+	- Notes that non-experts flag HS more often than experts
+	- Automatic classifiers often give false positive due to racial bias (i.e. not understanding AAE)
+	- Speifically seeks to reduce FP in racial bias as it is a major issue alone
+
+Methodology:---------------------------------------------------------------------------------------------------
+
+	- MODEL ARCHITECTURE | 3 Parts - 
+			1. An encoder (H) for text encoding
+			2. A binary classifier (C) for hate speech detection
+			3. An adversary (D) prediciting the protected attribute
+
+	- TRAINING PROCEDURE -
+			-> Data points are triples : {input text, target attribute label, protected attribute label}
+			-> Uses a two-phase training procedure inspired by Kumar et al. (2019)
+			-> PHASE : Pre-Training 	-> (H and C using the target attribute labels)
+			-> PHASE : Advers Training  -> (D and H using the protected attribute labels)
+
+Experiments:---------------------------------------------------------------------------------------------------
+
+	- DATASETS -
+			1. FRENK (Facebook comments) 		2. OLID (Twitter comments)
+
+	- CROSS-DOMAIN -
+			-> Trained on one dataset and tested on the other
+
+	- STATISTICS -
+			MODEL 	|   NUM_HS		| NUM_NO_HS		
+	------------------------------------------------
+	FRENK (training)|    2,848		|  5,091
+	FRENK   (test)  |    744		|  1,351
+    ------------------------------------------------
+	OLID  (training)|    4,400		|  8,840
+	OLID    (test)  |     240 		|  620 
+
+	- MODEL PERFORMANCE -
+	
+	In-Domain -> BERT and RoBERTa outperform baseline models (CNN, LSTM) and SVM in precision, recall and F1-score
+	Cross-Domain -> significant drop in performance, but BERT and RoBERTa still outperform baseline models and SVM
+
+	- ENSEMBLE APPROACH - 
+	
+	The Ensemble method combines BERT,  RoBERTa, and SVM prediciton through majority-voting improved results, especially by reducing false positive rates in both in-domain and cross-domain settings
+
+Conclusion:---------------------------------------------------------------------------------------------------
+
+	

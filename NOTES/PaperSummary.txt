@@ -1,10 +1,3 @@
-List of Papers:
-1.) Social Media Hate Speech Detection Using Explainable Artificial Intelligence (XAI)
-2.) Design Principles for User Interfaces in AI-Based Decision Support Systems: The Case of Explainable Hate Speech Detection
-3.) A systematic review of hate speech automatic detection using natural language processing
-4.) EnsMulHateCyb: Multilingual hate speech and cyberbully detection in online social media
-5.) Title: An Ensemble-Based Multi-Classification Machine Learning Classifiers Approach to Detect Multiple Classes of Cyberbullying
-
 ===========================================================================================================
 ===========================================================================================================
 					LIST OF ACADEMIC PAPERS AND THEIR SUMMARY
@@ -57,7 +50,10 @@ Data Processing:----------------------------------------------------------------
 		1.) Toknization : NLTK -> TensorFlow == int[]
 		2.) Sentence Padding : each sentence is padded to 200 chars
 		3.) Lemetization : reduce words to their base form
-		4.) Simplify Categories : ["text", "category", "label"]
+		4lse positives.
+ 11
+ 12                                     *** Thesis  ***
+ 13             """ The integration of expl.) Simplify Categories : ["text", "category", "label"]
 		5.) Create int mappings: {"hate_speech": 0, "offensive_language": 1, "neither": 2}
 		6.) Exploratory Data Analysis (EDA) : no specific details given
 
@@ -116,7 +112,6 @@ Cite: Meske, C., Bunde, E. Design Principles for User Interfaces in AI-Based Dec
 
 Aim:
 - Develop a framework for UIs in AI-based decision support systems for combating online hate speech.
-===========================================================================================================
 
 Problem Identification and Motivation:--------------------------------------------------------------------
 
@@ -192,6 +187,8 @@ language processing
 Authors: Md Saroar Jahan, Mourad Oussalah
 Published: May 14, 2021 (revised: December 20, 2022
 URL: https://www.sciencedirect.com/science/article/pii/S0925231223003557
+===========================================================================================================
+
 
 Introduction:------------------------------------------------------------------------------------------------
 
@@ -230,8 +227,6 @@ Common Acronyms:----------------------------------------------------------------
  	- BERT 		: Bidirectional Encoder Representations from Transformers
 	-RoBERTa
 
-THIS PAPER WILL BE GOOD FOR DATA, ACCEPTED ABBREVATION/TERMINOLOGY, AND GRAPHS
-
 ===========================================================================================================
 ===========================================================================================================
 
@@ -242,6 +237,8 @@ Title: EnsMulHateCyb: Multilingual hate speech and cyberbully detection in onlin
 Authors: Esshaan Mahajan, Hemaank Mahajan, Sanjay Kumar
 Published: August 30 2023
 URL: https://www.sciencedirect.com/science/article/abs/pii/S095741742301730X
+===========================================================================================================
+
 
 Introduction:------------------------------------------------------------------------------------------------
 	
@@ -495,4 +492,89 @@ Experiments:--------------------------------------------------------------------
 
 Conclusion:---------------------------------------------------------------------------------------------------
 
-	
+	In addressing the pervasive issue of hate speech and byberbullying on social media, this paper introduces a novel, ensemble deep learning-based multilingual model. This further shows the benefit of using the ensemble approach.
+
+===========================================================================================================
+===========================================================================================================
+
+
+
+9.)
+===========================================================================================================
+Title: GreenLLaMA: A Framework for Detoxification with Explanations
+Authors: Md Tawkat Islam Khondaker, Muhammad Abdul-Mageed, Laks V. S. Lakshmanan
+Published: February 25, 2024
+URL: https://arxiv.org/abs/2402.15951
+Cite:
+		arXiv:2402.15951 [cs.LG] https://doi.org/10.48550/arXiv.2402.15951
+===========================================================================================================
+
+Introduction:------------------------------------------------------------------------------------------------
+
+	- Toxic language encompasses offensive or hateful speech, including microaggressions, harassment, and hate speech.
+	- Despite efforts in toxicity detection, challenges persist due to linguistic variations across platforms and the task's evolving nature.
+	- Prior detoxification efforts focused on in-platform methods, neglecting cross-platform detoxification and the need to explain why input is toxic.
+	- This work introduces GreenLLaMA, an end-to-end framework addressing cross-platform detoxification, non-detoxifiability, and providing explanations for toxic inputs.
+	- GreenLLaMA utilizes a paraphrase detector to address non-detoxifiability, warning users about potential meaning alterations in detoxified text.
+	- A cross-platform pseudo-parallel corpus is developed using ChatGPT and prompt engineering, aiming for effective detoxification across various platforms.
+	- GreenLLaMA demonstrates superior performance in cross-platform detoxification tasks, highlighting the importance of a specialized paraphrase detector for this context.
+	- The framework's comprehensive approach aims to improve online communication by eliminating toxicity while maintaining the original message's intent.
+
+Methodology:---------------------------------------------------------------------------------------------------
+
+	- Abusive Language Detection: 
+		-> Focuses on identifying various forms of abusive language on social media
+		-> Employs various methods to address the challenge due to its subjective and evolving nature
+	- Text Style Transfer (TST): 
+		-> Research in NLP has explored TST due to its applications
+		-> Demonstrates the effectiveness of Large Language Models (LLMs) for parallel data generation and style transfer tasks, particularly in creating pseudo-parallel datasets
+	- Detoxification as Style Transfer:
+		-> Defined as style transfer from toxic to neutral
+		-> Approached by creating detoxification corpora and employing models to guide paraphrasing and remove toxicity
+		-> Use of human-annotated parallel corpora has shown significant performance improvements, highlighting the importance of quality parallel data
+	- Cross-Platform Detoxification:
+		-> Existing research has not explored cross-platform detoxification extensively
+		-> Primarily due to the lack of parallel data
+		-> This research gap motivates the exploration of detoxification across different platforms
+		-> Addresses the challenge of linguistic variation and the scarcity of parallel data
+
+Experiments and Results:--------------------------------------------------------------------------------------
+
+	- GreenLLaMA Framework:
+		-> Utilizes a paraphrase detector to address non-detoxifiability
+		-> Develops a cross-platform pseudo-parallel corpus using ChatGPT and prompt engineering
+		-> Demonstrates superior performance in cross-platform detoxification tasks
+		-> Highlights the importance of a specialized paraphrase detector for this context
+	- Evaluation Metrics:
+		-> Precision, Recall, F1-score
+		-> BLEU, METEOR, ROUGE-L
+	- Results:
+		-> GreenLLaMA outperforms existing detoxification models in cross-platform detoxification tasks
+		-> The framework's comprehensive approach aims to improve online communication by eliminating toxicity while maintaining the original message's intent
+
+===========================================================================================================
+===========================================================================================================
+
+10.)
+===========================================================================================================
+Title: Text Detoxification using Large Pre-trained Neural Models
+Authors: David Dale, Anton Voronov, Daryna Dementieva, Varvara Logacheva, Olga Kozlova, Nikita Semenov, Alexander Panchenko
+Published: September 18, 2021
+URL: https://arxiv.org/abs/2109.08914
+Cite:
+	arXiv:2109.08914 [cs.CL] 		https://doi.org/10.48550/arXiv.2109.08914
+===========================================================================================================
+
+Text Detoxification:
+			-> rew-write text to remove toxic content while preservingt the meaning
+
+Text Style Transfer:
+			-> re-write text to change the style while preserving its content (ambigious)
+			-> Unsupervised style trasnfer is when no solution is given. We have some options:
+					a.) Disentangled laten representations
+					b.) Pointwise addition
+					c.) Back-translation and cycle consistency	
+Two solutions:
+			* ParaGeDi (paraphrase GeDi) 	
+			* CondBERT (conditional BERT)
+

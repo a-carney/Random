@@ -1,0 +1,14 @@
+
+
+Technologies Used:
+		- Large Language Models (LLMs)			- ChatGPT				- GloVe Embeddings
+		- BiLSTM 								- BiGRU 				- CNN-LSTM
+		- Meta Vectorizer 						- BERT 					- RoBERTa 		
+		- T5 									- BART 					- LLaMA and Alpaca
+		- Vicuna
+
+The project is divided into 3 main parts:
+	1. Data Preprocessing
+	2. Model Building
+	3. Model Evaluation
+

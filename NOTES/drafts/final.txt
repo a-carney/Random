@@ -1,0 +1,192 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Multilingual Text Detoxification (TextDetox) 2024}
+\author{Alex Carney}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In an era where digital interactions have become more prevalent than ever, the ability to control the spread of information has continued to be a major concern. One of the more important issues is the rise in online toxic language, specifically in social media forums. This toxic language, often referred to colloquially as things like "hate speech" or "cyberbullying" can have significant impacts on the mental health of those who are targeted. As a result, there has been a significant effort to develop tools that can detect and prevent the spread of toxic information.     Though many efforts are ongoing to block hate speech, less effort has been put into the development of tools that can cleanse the language of its toxic elements while preserving the original context. This process, known as text detoxification, is discussed in this paper along with strategies that can be implemented. Although it is clear that many different strategies need to work together for this to completely work successfully, this paper will also explain why the specific use of explainable artificial intelligence (XAI) and ensemble-based machine learning models are critical to this accomplishment. 
+\end{abstract}
+
+\section{Introduction}
+In the last decade, our world has seen technology connect people more than ever before. Social media platforms like Facebook, Twitter, and Instagram have allowed users to connect with people in a fast, efficient, but often impersonal way. This has led to a rise in the amount of toxic language that is spread online, and many computer scientists have been working to develop tools that can help mitigate this. Recently, the use of machine learning models that specialize in natural language processing (NLP) have been used to detect and block toxic language. These models are typically trained on large datasets of text that have been labeled into different categories.  With the relatively recent launch of BERT in 2018 from Google, we have seen a significant improvement in the ability of these models to understand the context of phrases, which has also helped greatly with the advancement of these technologies. 
+
+However, these models are not perfect, and most research has shown that a particularly difficult issue is toxic language detectors returning false positives (FP), or in other words, detecting toxic language where there is none. Although the converse, a false negative (FN), is still something that occurs, false positives are particularly harmful in online social environments where a user could be wrongly removed from a network. Due to these additional cases, this paper will always highlight the importance of approaching text detoxication in a nuanced way by leveraging explainable artificial intelligence (XAI) and ensemble-based machine learning models.
+
+\section{Background}
+With many language models, including BERT, becoming available during the 2010s, the ability to understand the context of phrases has greatly improved. Before, most language processing was developed with the use of simpler tools like row filtering, tokenization, stop word removal, and regex. These tools were not able to understand the context of phrases, and as a result, were not great at language processing. However, with the advent of more complex models, we began to see models understand more context. 
+
+Almost immediately, it was clear that these models experienced significant issues with False Positives (FP). In 2020, a study at Cornell University sought to find the issues with creating a proper hate speech detection model. The study noted that while there was a clear demand for this, the models would often return false positives, and disproportionately assigned FP to minority groups. In fact, it was pointed out that African Americans were the most likely to get flagged for a false positive. While a robust solution is not provided, the study does show that the introduction of additional information is necessary to help classify samples with more information than the language itself. Things like the user's ethnicity could be used to help reduce the number of FPs.
+
+Another study at the University of Oulu stated that the rise of toxic speech can largely be attributed to the comfort of anonymity that the internet provides and the slowness of human moderation.
+
+\subsection{Explainable AI (XAI)}
+In 2022, a study at Laurentian University showed the importance of creating explainable AI models (XAI) in order to create a framework for interpretability with AI. Three versions of XAI were created for this situation:
+\begin{itemize}
+\item BERT + ANN (Artificial Neural Network) : 93.55\% accuracy
+\item BERT + MLP (Multi-Layer Perceptron) : 93.67\% accuracy
+\item Custom Model (Decision Trees, k-nearest, MNB, Random Forest, Logistic Regressiono, LSTM) : 97.6\%
+\end{itemize}
+
+Each model had something additional to offer. BERT was given either ANN or MLP to achieve a form of XAI. Additionally, a technique called LIME (Local Interpretable Model-agnostic Explanations) was used to help explain the model's predictions. This model takes an "agnostic" approach where it responds to the user with explanations for the model's behavior without knowing what goes on inside the models. This is important because it allows the user to understand the model's behavior without needing to be an expert on its inner workings.
+
+Another study in 2022 further discussed the XAI approach and how we can address it. The study notes a few key issues here and possible solutions. First, there is a lack of trust among users in AI models. This is largely due to the "black box" nature of these models. The study points out that this issue is largely an issue since the models cannot currently work without some human intervention. It is argued here that the creation of frameworks where a human moderator receives custom UI messages from an XAI would be a good way to address this.
+
+
+\subsection{Ensemble Models}
+The other major strategy that has been added recently is the use of ensemble models, which are just models that are made of multiple models. The idea here is that the models can work together to create a more accurate prediction. In January 2024, a new study was released from Florida Atlantic University that explored this idea. Typical strategies were used to create the model (i.e. Decision Trees, Random Forest, TF-IDF), but the study also used a technique called "stacking" to create the ensemble model. This is a technique where the models are trained on the same data, but the predictions are used as input for another model. The study found that the ensemble model was able to achieve a 98.7\% accuracy, which was a significant improvement over the individual models. 
+
+
+\subsection{False Positives}
+Considering each study mentions FPs as a major issue, a section must be dedicated to the background of solving this problem. In 2021, A study from the University of Antwerp showed that 78.8\% of their FPs were due to words categorized as offensive being used in a non-offensive context. An ensemble approach was used here as well to reduce FP rates, which proved to be the largest difference maker. 
+\section{Stragey}
+
+\subsection{Other Researchers}
+Here are some of the strategies that have been used from the research we have looked at so far:
+
+\begin{itemize}
+    \item Use of Python langauge for APIs
+    \item Human bias and False Positive are a growing concern
+    \item Ensemble and XAI approaches are critical to fixing this
+\end{itemize}
+
+
+
+\subsection{This Project}
+Considering the large variations in strategies that can be applied due to the complexity of Ensemble Model's and XAI, it is clear a nuanced approach is needed. Here are some of the strategies that I believe will be successful:
+
+
+\begin{table}[htbp] % More flexible positioning parameters
+\centering
+\caption{Summary of Approaches to Text Detoxification}
+\label{tab:approaches}
+\begin{tabular}{|l|p{5cm}|c|p{5cm}|}
+\hline
+\textbf{Model} & \textbf{Description} & \textbf{Accuracy} & \textbf{Findings} \\
+\hline
+BERT + ANN & Integration of BERT with Artificial Neural Network & 93.55\% & Good but can be customized further \\
+\hline
+BERT + MLP & Integration of BERT with Multi-Layer Perceptron & 93.67\% & Offers slight improvements over ANN, indicating potential areas for further customization \\
+\hline
+Ensemble & Combination of several algorithms (Decision Trees, k-nearest neighbors, Multinomial NB, Random Forest, Logistic Regression, LSTM) & 97.6\% & Outperforms single-algorithm approaches, demonstrating the strength of ensemble methods in reducing false positives and increasing accuracy \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Conclusion}
+
+Only detecting toxic language and masking it is not enough. We need to approach this in a nuanced way to address the extremely common issue of False Positives. The use of XAI and ensemble models on top of already existing natural language processing models is critical to this. The use of these models will allow us to create a more transparent model that can be trusted by users and will allow us to observe what issues come up and fine-tune the model to address them. This will ultimately create a better experience for everyone, as it will greatly reduce the issue of users being wrongly removed from a network.
+
+\begin{filecontents}{sample.bib}
+@article{Mehta2022,
+  author = {Harshkumar Mehta and Kalpdrum Passi},
+  title = {Social Media Hate Speech Detection Using Explainable Artificial Intelligence (XAI)},
+  journal = {Algorithms},
+  volume = {15},
+  number = {8},
+  year = {2022},
+  url = {https://www.mdpi.com/1999-4893/15/8/291},
+  doi = {10.3390/a15080291}
+}
+
+@article{Meske2022,
+  author = {Christian Meske and Enrico Bunde},
+  title = {Design Principles for User Interfaces in AI-Based Decision Support Systems: The Case of Explainable Hate Speech Detection},
+  journal = {Information Systems Frontiers},
+  volume = {25},
+  pages = {743--773},
+  year = {2023},
+  url = {https://link.springer.com/article/10.1007/s10796-021-10234-5},
+  doi = {10.1007/s10796-021-10234-5}
+}
+
+@article{Mahajan2023,
+  author = {Esshaan Mahajan and Hemaank Mahajan and Sanjay Kumar},
+  title = {EnsMulHateCyb: Multilingual hate speech and cyberbully detection in online social media},
+  journal = {Expert Systems with Applications},
+  year = {2023},
+  url = {https://www.sciencedirect.com/science/article/abs/pii/S095741742301730X},
+}
+
+@article{Saifullah2024,
+  author = {Shoffan Saifullah and Rafał Dreżewski and Felix Andika Dwiyanto and Agus Sasmito Aribowo and Yuli Fauziah and Nur Heri Cahyana},
+  title = {Automated Text Annotation Using a Semi-Supervised Approach with Meta Vectorizer and Machine Learning Algorithms for Hate Speech Detection},
+  journal = {Applied Sciences},
+  volume = {14},
+  number = {3},
+  pages = {1078},
+  year = {2024},
+  url = {https://www.mdpi.com/2076-3417/14/3/1078},
+  doi = {10.3390/app14031078}
+}
+
+@article{Alqahtani2024,
+  author = {Abdulkarim Faraj Alqahtani and Mohammad Ilyas},
+  title = {An Ensemble-Based Multi-Classification Machine Learning Classifiers Approach to Detect Multiple Classes of Cyberbullying},
+  journal = {Machine Learning and Knowledge Extraction},
+  volume = {6},
+  number = {1},
+  pages = {156--170},
+  year = {2024},
+  url = {https://www.mdpi.com/2504-4990/6/1/9},
+  doi = {10.3390/make6010009}
+}
+
+@article{Markov2021,
+  author = {Ilia Markov and Walter Daelemans},
+  title = {Improving Cross-Domain Hate Speech Detection by Reducing the False Positive Rate},
+  journal = {Proceedings of the 4th NLP4IF Workshop on NLP for Internet Freedom},
+  pages = {17--22},
+  year = {2021},
+  url = {https://aclanthology.org/2021.nlp4if-1.3.pdf},
+}
+
+@article{Xia2020,
+  author = {Mengzhou Xia and Anjalie Field and Yulia Tsvetkov},
+  title = {Demoting Racial Bias in Hate Speech Detection},
+  journal = {arXiv preprint arXiv:2005.12246},
+  year = {2020},
+  url = {https://arxiv.org/abs/2005.12246},
+  doi = {10.48550/arXiv.2005.12246}
+}
+
+@article{Khondaker2024,
+  author = {Md Tawkat Islam Khondaker and Muhammad Abdul-Mageed and Laks V. S. Lakshmanan},
+  title = {GreenLLaMA: A Framework for Detoxification with Explanations},
+  journal = {arXiv preprint arXiv:2402.15951},
+  year = {2024},
+  url= {https://arxiv.org/abs/2402.15951},
+  doi = {10.48550/arXiv.2402.15951}
+}
+
+@article{dale2021text,
+    title={Text Detoxification using Large Pre-trained Neural Models},
+    author={David Dale and Anton Voronov and Daryna Dementieva and Varvara Logacheva and Olga Kozlova and Nikita Semenov and Alexander Panchenko},
+    year={2021},
+    eprint={2109.08914},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL},
+    url={https://arxiv.org/abs/2109.08914},
+    doi={10.48550/arXiv.2109.08914}
+}
+\end{filecontents}
+
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{sample}
+\end{document}

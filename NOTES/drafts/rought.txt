@@ -1,4 +1,4 @@
-Alex Carney
+:splex Carney
 COS 470 - Text Analytics using AI
 Course Project - Part 1
 
@@ -10,12 +10,88 @@ ROUGH DRAFT
 	However, these models are not perfect, and most reserach has shown that a particularly difficult issue is toxic language detectors returning false postivies (FP), or in other words, detecting toxic language where there is none. Although the converse, a false negative (FN), is still something that occurs, false postiives are particularly harmful in online social environments where a user could be wrongly removed from a network. Due to these additional cases, this paper will always highglight the importance of approaching text dextoficiation in a nuanced way by leveraging explainable artificial intelligence (XAI) and ensemble-based machine learning models.
 
 ----------------------------------------------------------------------------------------------------------------------------
-
+INTRODUCTION
 	With many languages models, includeing BERT, becoming availalbe durings the 2010s, the ability to understand the context of phrases has greatly improvd. Before, most language processing was developed with the use of simpler tools like row filtering, tokenization, stop word removal, and regex. These tools were not able to understand the context of phrases, and as a result, were not great at language processing. However, with the advent of more complex models, we began to see models underestand more context. 
 
 	Almost immediately, it was clear that these models experienced signifigant issues with False Positives (FP). In 2020, a study at Cornell University sought to find the issues with creating a proper hate speech detection model. The study noted that while there was a clear demand for this, the models would often return false positives, and disproportionately assigned FP to miniority groups. In fact, it was pointed out that African Americans were the mostl likely to get flagged for a false posiotive. While a robust solution is not provided, the study does show that the introduction of additional information is nessary to help classify samples with more information that the language itself. Things like the user's ethnicity could be used to help reduce the number of FPs. [8]		 
 
 	Another study at the University of Oulu stated that the rise of toxic speech can largely be attributed to the comfort of anonymity that the internet provides, and the slowness of human moderation. [2]
 	-------------------------------------------------------------------------------------------------
------------
+----------
+
+
+BACKGROUND
+
+	XAI
+
+		In 2022, a study at Laurentian University showed the importance of creating explainable AI models (XAI) in order to create a framework for interpretability with AI. Three versions of XAI were created for this situation:
+begin{itemize}
+\ BERT + ANN (Artificial Neural Network) : 93.55% accuracy
+\ BERT + MLP (Multi-Layer Perceptron) : 93.67% accuracy
+\ Custom Model (Decision Trees, k-nearest, MNB, Random Forest, Logistic Regressiono, LSTM) : 97.6%
+\item Like this,
+\item and like this.
+\end{itemize}
+
+	Each model had something additional to offer. BERT was given either ANN or MLP to achieve a form of XAI. Additionally, a technique called LIME (Local Interpretable Model-agnostic Explanations) was used to help explain the model's predictions. This model takes an "agnostic" approach where it responds to the user with explanations for the models behavior without knowing what goes on inside the models. This is important because it allows the user to understand the model's behavior without needing to be an expert on it's innner working.
+[1]
+
 	
+	Another study in 2022 further discussed the XAI approach and how we can address it. The study notes a few key issues here and possible solutions. First, there is a lack of trust amongst users in AI models. This is largely due to the "black box" nature of these models. The study points out that this issue is largely an issue since since the models cannot currently work without some human intervention. It is argued here that the creation of frameworks where a human moderator receives custom UI messages from an XAI would be a good way to address this. [2]  https://link.springer.com/article/10.1007/s10796-021-10234-5
+
+	ENSEMBLE MODEL
+
+	The other major strategy that has been added recently is the use of ensemble models, which are just models that are made of multiple models. The idea here is that the models can work together to create a more accurate prediction. In January 2024, a new study was release from Florida Atlantic University that explored this idea. Typical strategies were used to creat the model (i.e. Decision Trees, Random Forest, TF-IDF), but the study also used a technique called "stacking" to create the ensemble model. This is a technique where the models are trained on the same data, but the predictions are used as input for another model. The study found that the ensemble model was able to achieve a 98.7% accuracy, which was a significant improvement over the individual models. [6] https://www.mdpi.com/2504-4990/6/1/9
+
+
+	MORE ON FALSE POSITIVES
+
+	Considering each study mentions FPs as a major issue, it is important a section is dedicated on the background of solving this problem. In 2021, A study from the University of Antwerp showed that 78.8% of their FPs were due to words categorized as offensive being used in a none offenseive context. An ensemble approach was used here as well to reduce FP rates, which proved to be the largest difference maker. [7] https://aclanthology.org/2021.nlp4if-1.3.pdf  
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+WAYS TO APPROACH:
+
+	There are many ways we can approach this issue, but the most important thing to remember is that we need to approach this in a nuanced way. The use of XAI and ensemble models are critical to this. Here are some of the possibilities we have so far:
+
+
+
+	MY APPROACH:
+
+	Considering the large variations in strategies that can be used due to the complexity of Ensemble Models and XAI, I will discuss some strategies that I believe will be succesfull:
+
+
+\begin{itemize}
+\item BERT + ANN (Artificial Neural Network) : 93.55\% accuracy
+\item BERT + MLP (Multi-Layer Perceptron) : 93.67\% accuracy
+\item Custom Model (Decision Trees, k-nearest, MNB, Random Forest, Logistic Regressiono, LSTM) : 97.6\%
+\end{itemize}
+
+\beging{itemize}
+\item XAI - Create a custom interface that parses responses to human readable messages. This will ultimate create a more transparent model that can be trusted by users.
+\item Ensemble Model - Use a stacking technique to create an ensemble model that can work together to create a more accurate prediction. This will allow us to observe what issues come up and fine tune the model to address them. (i.e. Are non-native English having their speech censored?)
+\item GPT and other LLMs - This can be used at a high level to help address the issues surrounding TST (Text Style Transfer), human bias, and other high level issues.
+
+
+\begin{itemize}
+    \item \textbf{XAI (Explainable Artificial Intelligence):}
+    \begin{itemize}
+        \item NLTK (Natural Language Toolkit): A Python library for natural language processing tasks, which includes tools for explainability and interpretation of machine learning models.
+        \item PyTorch: An open-source machine learning library for Python, widely used for building and training neural network models, including those for explainable AI.
+        \item GPT (Generative Pre-trained Transformer): OpenAI's implementation of the Generative Pre-trained Transformer model, which can be used for various natural language understanding and generation tasks.
+    \end{itemize}	
+\begin{itemize}
+    \item \textbf{Ensemble Model:}
+    \begin{itemize}
+        \item Decision Trees: Decision trees are simple yet powerful models that can capture complex relationships in the data. They can be used as base models in ensemble methods like random forests or as standalone classifiers.
+        \item Random Forest: Random forests are an ensemble learning technique that combines multiple decision trees to improve predictive performance and reduce overfitting. They are robust and widely used for classification and regression tasks.
+        \item Gradient Boosting: Gradient boosting is another ensemble method that builds a strong predictive model by combining multiple weak learners sequentially. Algorithms like XGBoost and LightGBM are popular implementations of gradient boosting.
+    \end{itemize}
+\end{itemize}
+	
+
+	CONCLUSION
+	
+	In conclusion, only detecting toxic language and masking it is not enough. We need to approach this in a nuanced way in order to address the extremely commmon issue of False Positives. The use of XAI and ensemble models on top of already existing natural language processing models is critical to this. The use of these models will allow us to create a more transparent model that can be trusted by users, and will allow us to observe what issues come up and fine tune the model to address them. This will ultimately create a better experience for everyone, as it will greatly reduce the issue of user's being wrongly removed from a network.
+

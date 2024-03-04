@@ -134,57 +134,7 @@ Design Science Research Project:------------------------------------------------
 		- Method: Design Science Research (DSR) process.
 		- Design Cycles: Literature Review, Design and Development, Evaluation.
 	2. Hate Speech Detection Using Transfer Learning and Artifact Development:
-		- Transfer Learning: Fine-tuning pre-trained models for specific tasks.
-		- Implementation and UI Development.
-		- Dataset and Evaluation.
-
-Objectives of the Proposed Solution:------------------------------------------------------------------------
-
-	1. Adapt and justify Design Requirements (DRs) for hate speech detection.
-	2. Design Principles (DPs) and Design Features (DFs) meet the identified Design Requirements (DRs).
-	3. Iterative design cycles refine DPs and DFs.
-
-Design and Development:--------------------------------------------------------------------------------
-
-	1. Design Principles (DPs) for UIs in AI-Based DSS:
-		- Transfer learning for text classification.
-		- XAI-based system outputs justification.
-		- Case-based contextual information.
-	2. Design Features (DFs) for UIs in AI-Based DSS:
-		- Generate understandable explanations.
-		- Aid decision-making.
-	3. Iterative Design Cycles:
-		- Three design cycles refine and validate DPs and DFs.
-		- Positive user perception and utility in enhancing decision-making.
-		- Local explanations impact user trust and understanding.
-		- Practitioners validate the practical applicability of DPs.
-
-Limitations and Future Research Opportunities:-------------------------------------------------------------
-
-	1. Limitations:
-		- Focus on UIs without considering the backend perspective.
-		- Lack of real-world case study.
-	2. Future Research:
-		- Explore backend perspective.
-		- Broader range of hate speech concepts.
-		- Diverse application domains.
-
-
-Conclusion:------------------------------------------------------------------------------------------------
-
-	- Developed and evaluated DPs for UIs in AI-based DSS for explainable hate speech detection.
-	- Emphasize user and practitioner perspectives in the design process.
-	- Contribute valuable prescriptive knowledge.
-	- Highlight the need for continued efforts in combating online hate speech.
-
-===========================================================================================================
-===========================================================================================================
-
-3.)
-===========================================================================================================
-Title: A systematic review of hate speech automatic detection using natural
-language processing
-Authors: Md Saroar Jahan, Mourad Oussalah
+		- Transfer Learning: Fine-tuning pre-trained uthors: Md Saroar Jahan, Mourad Oussalah
 Published: May 14, 2021 (revised: December 20, 2022
 URL: https://www.sciencedirect.com/science/article/pii/S0925231223003557
 ===========================================================================================================
